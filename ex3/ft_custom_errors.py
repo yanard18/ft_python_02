@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 
 class GardenError(Exception):
-    def __init__(self, message: str = "Unknown plant error"):
+    def __init__(self, message: str = "Unknown plant error") -> None:
         self.message = message
         super().__init__(self.message)
 
 
 class PlantError(GardenError):
-    pass
+    def __init__(self, message: str = "Unknown plant error") -> None:
+        super().__init__(message)
 
 
 class WaterError(GardenError):
-    pass
+    def __init__(self, message: str = "Unknown watering error") -> None:
+        super().__init__(message)
 
 
 def test_plant_error() -> None:
@@ -41,11 +43,11 @@ if __name__ == "__main__":
     try:
         test_plant_error()
     except GardenError as e:
-        print(f"Caught {e.__class__.__bases__[0].__name__}: {e}")
+        print(f"Caught GardenError: {e}")
 
     try:
         test_water_error()
     except GardenError as e:
-        print(f"Caught {e.__class__.__bases__[0].__name__}: {e}")
+        print(f"Caught GardenError: {e}")
 
     print("\nAll custom error types work correctly!")

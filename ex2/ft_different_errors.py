@@ -14,13 +14,7 @@ def garden_operations(operation_number: int) -> None:
                 "abc" + 123
             case 4:
                 print("Operation completed successfully!")
-    except ValueError as e:
-        print(f"Caught {e.__class__.__name__}: {e}")
-    except ZeroDivisionError as e:
-        print(f"Caught {e.__class__.__name__}: {e}")
-    except FileNotFoundError as e:
-        print(f"Caught {e.__class__.__name__}: {e}")
-    except TypeError as e:
+    except (ValueError, ZeroDivisionError, FileNotFoundError, TypeError) as e:
         print(f"Caught {e.__class__.__name__}: {e}")
 
 
