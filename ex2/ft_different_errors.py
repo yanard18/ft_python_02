@@ -22,9 +22,9 @@ def garden_operations(operation_number: int) -> None:
         print(f"Caught {e.__class__.__name__}: {e}")
     except TypeError as e:
         print(f"Caught {e.__class__.__name__}: {e}")
-        
 
-def test_error_types():
+
+def test_error_types() -> None:
     garden_operations(0)
     garden_operations(1)
     garden_operations(2)
@@ -32,7 +32,6 @@ def test_error_types():
     garden_operations(4)
 
     print("\nAll error types tested successfully!")
-
 
 
 if __name__ == "__main__":
